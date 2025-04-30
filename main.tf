@@ -79,7 +79,7 @@ resource "aws_lambda_function" "process_audio" {
   runtime       = "python3.11"
   role          = aws_iam_role.lambda_exec_role.arn
   filename      = "./lambda_function_payload.zip"
-  source_code_hash = filebase64sha256("./lambda_function_payload.zip")
+  source_code_hash = filebase64sha256("./lambda_function.zip")
   environment {
     variables = {
       TABLE_NAME = aws_dynamodb_table.analysis_results.name
